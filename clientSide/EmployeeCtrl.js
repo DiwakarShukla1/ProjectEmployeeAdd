@@ -6,6 +6,7 @@ angular.module("Employee",[])
 	$scope.addEmployee=function(){
 		window.alert(JSON.stringify($scope.emp));
 		window.alert("Added Successfully.....");
+		
 		$http.post("/addEmployee",$scope.emp)
 		.success(function(data,status,headers,config){
 			window.alert("Ya Ya Ya......");
