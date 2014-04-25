@@ -2,6 +2,7 @@ angular.module("Employee",[])
 .controller("EmployeeCtrl",function($scope,$http){
 	$scope.emp={};
 	$scope.flag=false;
+	$scope.parrent=[];
 
 	$scope.addEmployee=function(){
 		window.alert(JSON.stringify($scope.emp));
@@ -16,7 +17,13 @@ angular.module("Employee",[])
 	
 	$scope.change=function(){
 		if($scope.emp.Level!="2"){
-			$scope.flag=true;
+			$http.get('/getParrentName?level='+emp.Level)
+			.success(function(data,status,headers,config){
+				$scope.parrent=data;
+				$scope.flag=true;
+			}).error(function(data,status,headers,config){
+				window.alert("No Parrent");
+			});
 		}else{
 			$scope.flag=false;
 		}

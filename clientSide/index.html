@@ -34,10 +34,8 @@
 		   		<tr ng-show="flag">
 		   			<th>Parrent Name :</th>
 		   			<td>
-		   				<select name="empLevel" ng-model="emp.Parrent">
-			   				<option>2</option>
-			   				<option>3</option>
-			   				<option>4</option>
+		   				<select ng-model="emp.Parrent">
+		   					<option value="{{item.id}}" ng-repeat="item in parrent">{{item.value}}</option>
 		   				</select>
 		   			</td>
 		   		</tr>
