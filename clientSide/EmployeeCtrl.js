@@ -18,10 +18,12 @@ angular.module("Employee",[])
 	
 	$scope.change=function(){
 		if($scope.emp.Level!="2"){
-			$http.get('/getParrentName?level='+emp.Level)
+			//window.alert()
+			$scope.flag=true;
+			$http.get('/getParrentName/'+$scope.emp.Level)
 			.success(function(data,status,headers,config){
 				$scope.parrent=data;
-				$scope.flag=true;
+				window.alert(data);
 			}).error(function(data,status,headers,config){
 				window.alert("No Parrent");
 			});
